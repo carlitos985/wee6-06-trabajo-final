@@ -8,7 +8,7 @@ const testMigrate = async () => {
         await sequelize.sync({ force: true })
         console.log('DB reset ✅');
 
-        await userCreate()
+        await userCreate()//Semilla que agrega contenido a BD
         process.exit()
     } catch (error) {
         console.error(error);
