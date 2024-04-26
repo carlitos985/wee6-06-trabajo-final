@@ -1,7 +1,7 @@
 const request=require('supertest')
 const app = require("../app")
 
-const BASE_URL= 'api/v1/categories'
+const BASE_URL= '/api/v1/categories'
 
 let categoryId
 
@@ -26,19 +26,19 @@ test("POST 'BASE_URL', should return statusCode 201, and res.body.name === categ
         .send(category)
         .set("Authorization", `Bearer ${TOKEN}`)
 
-    categoryId=req.body.id
+    categoryId=res.body.id
     
     expect(res.status).toBe(201)
     expect(res.body).toBeDefined() 
     expect(res.body.name).toBe(category.name)
 })
 
-test("GET -> 'BAS_URL', should return statusCode 200, and res.body.length === 1", async()=>{
+test("GET -> 'BASE_URL', should return statusCode 200, and res.body.length === 1", async()=>{
     const res = await request(app)
         .get(BASE_URL)
 
     expect(res.status).toBe(200)
-    expect(res.body).toBe()
+    expect(res.body).toBeDefined()
     expect(res.body).toHaveLength(1)
 })
 
