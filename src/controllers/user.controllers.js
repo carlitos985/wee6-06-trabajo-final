@@ -38,7 +38,7 @@ const login = catchError(async(req, res)=>{
     if(!user) return res.sendStatus(401)
 
     const isValid= await bcrypt.compare(password, user.password)
-    if(!isValid) return res-sendStatus(401)
+    if(!isValid) return res.sendStatus(401)
 
     const token= jwt.sign(
         {user},

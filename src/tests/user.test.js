@@ -89,7 +89,7 @@ test("POST->'BASE_URL/login', should return statusCode 200, res.body.user.email=
     expect(res.body.user.email).toBe(user.email)
     expect(res.body.token).toBeDefined()
 })
-/*
+
 test("POST 'BASE_URL/login', should return statusCode 401", async () => {
     const userInvalid = {
         email:"erika@mail.com",
@@ -101,7 +101,7 @@ test("POST 'BASE_URL/login', should return statusCode 401", async () => {
       .send(userInvalid)
     console.log(res.body)
     expect(res.statusCode).toBe(401)
-  })*/
+  })
   test("DELETE -> 'BASE_URL/:id', should return statusCode 204", async()=>{
     const res= await request(app)
         .delete(`${BASE_URL}/${userId}`)

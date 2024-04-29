@@ -4,6 +4,7 @@ const app = require("../app")
 const BASE_URL= '/api/v1/categories'
 
 let categoryId
+let category
 
 //hook de inicio de sesion
 beforeAll(async()=>{
@@ -42,11 +43,12 @@ test("GET -> 'BASE_URL', should return statusCode 200, and res.body.length === 1
     expect(res.body).toHaveLength(1)
 })
 
-test("DELETE 'BASE_URL/:id', should return statusCode 204", async()=>{
-    const res= await request(app)
-        .delete(`${BASE_URL}/${categoryId}`)
-        .set('Authorization', `Bearer ${TOKEN}`)
-    
-    expect(res.status).toBe(204)
-})
-
+test('Delete -> BASE_URL, should return statusCode 204', async () => {
+    const res = await request(app)
+      .delete(`${BASE_URL}/${categoryId}`)
+      .set('Authorization', `Bearer ${TOKEN}`)
+  
+    expect(res.statusCode).toBe(204)
+  
+     //! siempre va en la ultima linea, del ultimo test del archivo
+  })
