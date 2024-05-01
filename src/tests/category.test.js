@@ -18,7 +18,7 @@ beforeAll(async()=>{
     TOKEN= res.body.token
 })
 test("POST 'BASE_URL', should return statusCode 201, and res.body.name === category.name", async()=>{
-    const category={
+     category={
         name:"Tecnologia",    
     }
     
@@ -52,3 +52,4 @@ test('Delete -> BASE_URL, should return statusCode 204', async () => {
   
      //! siempre va en la ultima linea, del ultimo test del archivo
   })
+  

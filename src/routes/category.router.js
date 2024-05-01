@@ -1,4 +1,4 @@
-const { getAll, create, getOne, remove, update } = require('../controllers/category.controller');
+const { getAll, create, remove } = require('../controllers/category.controller');
 const express = require('express');
 const { verifyJWT } = require('../utils/verifyJWT');
 

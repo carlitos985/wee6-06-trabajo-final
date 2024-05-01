@@ -91,12 +91,12 @@ test("PUT->BASE_URL, should return statusCode 200, and res.body.title === bodyUp
       expect(res.body).toBeDefined()
       expect(res.body.title).toBe(bodyUpdate.title) 
         
-        //await category.destroy() 
+        await category.destroy() 
 
       })
       
       test('Delete -> BASE_URL, should return statusCode 204', async()=>{
-        const res = request(app)
+        const res = await request(app)
         .delete(`${BASE_URL}/${productId}`)
         .set('Authorization',  `Bearer ${TOKEN}`)
         
