@@ -52,7 +52,7 @@ expect(res.body.title).toBe(product.title)
 //await category.destroy()
 })
 
-test("GET -> BASE_URL, should retunr statusCode 200, and res.body===1", async () => {
+test("GET -> BASE_URL, should return statusCode 200, and res.body===1", async () => {
 
     const res = await request(app)
       .get(BASE_URL)
@@ -91,7 +91,7 @@ test("PUT->BASE_URL, should return statusCode 200, and res.body.title === bodyUp
       expect(res.body).toBeDefined()
       expect(res.body.title).toBe(bodyUpdate.title) 
         
-        await category.destroy() 
+       // await category.destroy() 
 
       })
       

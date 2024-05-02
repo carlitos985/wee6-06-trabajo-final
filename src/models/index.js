@@ -4,6 +4,7 @@ const Category=require("./Category")
 const Product = require("./Product")
 const Cart = require("./Cart")
 const Purchase = require("./Purchase")
+const productImg = require("./ProductImg")
 
 //Realcion de productos y categorias
 Product.belongsTo(Category)
@@ -24,3 +25,7 @@ User.hasMany(Purchase)
 //Purchase relacion con productos
 Product.hasMany(Purchase)
 Purchase.belongsTo(Product)
+
+//ProductImg relacion con productId
+productImg.belongsTo(Product)
+Product.hasMany(productImg)

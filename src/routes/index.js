@@ -5,6 +5,7 @@ const routerProduct = require('./product.router');
 const { verifyJWT } = require('../utils/verifyJWT');
 const routerCart = require('./cart.router');
 const routerPurchase = require('./purchase.router');
+const routerProductImg = require('./productImg.router');
 const router = express.Router();
 
 // colocar las rutas aquí
@@ -13,6 +14,6 @@ router.use('/categories', routerCategory)
 router.use('/products', routerProduct)
 router.use('/cart', verifyJWT, routerCart ) //Todas las rutas estan protegidas
 router.use('/purchase', verifyJWT, routerPurchase)//Todas las rutas protegidas
-
+router.use('/product_images',verifyJWT, routerProductImg)//odas las rutas protegidas
 
 module.exports = router;
