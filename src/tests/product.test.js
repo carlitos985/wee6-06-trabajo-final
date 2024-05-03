@@ -2,12 +2,14 @@ require("../models")
 const Category = require("../models/Category")
 const request=require("supertest")
 const app=require('../app')
+const ProductImg = require("../models/ProductImg")
 const BASE_URL='/api/v1/products'
 
 let category
 let TOKEN
 let product
 let productId
+let image
 
 //Hook de creacion de categoria
 beforeAll(async()=>{
@@ -28,8 +30,6 @@ beforeAll(async()=>{
 })
 
 test("POST ->'BASE_URL', should return statusCode 201, and res.body.title === product.title ", async()=>{
-
-
 
    product={
     title:"Celular",
@@ -92,6 +92,24 @@ test("PUT->BASE_URL, should return statusCode 200, and res.body.title === bodyUp
       expect(res.body.title).toBe(bodyUpdate.title) 
         
        // await category.destroy() 
+
+      })
+      test("POST->'URL_BASE/:id/images', should return status code 200, and res.body.length===1", async()=>{
+        const imageBody = {
+          url:'lorem40',
+          filename:'lorem10'
+        }
+
+        image = await ProductImg.create(imageBody)
+
+        const res = await request(app)
+          .post(`${BASE_URL}/${productId}/images`)
+          .send([image.id])
+          .set('Authorization', `Bearer ${TOKEN}`)
+
+         expect(res.status).toBe(200)
+         expect(res.body).toBeDefined()
+         expect(res.body).toHaveLength(1)
 
       })
       

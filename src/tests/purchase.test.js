@@ -52,26 +52,28 @@ test("POST->'BASE_URL', should return statusCode 201, and res.body.quantity===ca
     const res=await request(app)
         .post(BASE_URL)
         .set("Authorization", `Bearer ${TOKEN}`)
-    
+    // console.log(res.body)
     expect(res.status).toBe(201)
     expect(res.body[0].quantity).toBe(bodyCart.quantity)
-    
+ 
 })
-/*
+
 test("GET->'BASE_URL', should return statusCode 200, and  res.body.length===1", async()=>{
     const res=await request(app)
         .get(BASE_URL)
         .set("Authorization", `Bearer ${TOKEN}`)
 
-expect(res.status).toBe(200)
-expect(res.body).toBeDefined()
-expect(res.body).toHaveLength(1)
+        console.log(res.body)
 
-expect(res.body[0].userId).toBeDefined()
-expect(res.body[0].userId).toBe(userId)
+// expect(res.status).toBe(200)
+// expect(res.body).toBeDefined()
+// expect(res.body).toHaveLength(1)
 
-expect(res.body[0].product).toBeDefined()
-expect(res.body[0].product.id).toBe(product.id)
+// expect(res.body[0].userId).toBeDefined()
+// expect(res.body[0].userId).toBe(userId)
+
+// expect(res.body[0].product).toBeDefined()
+// expect(res.body[0].product.id).toBe(product.id)
 
 await product.destroy()
-})*/
+})
